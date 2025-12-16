@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hyezel's Portfolio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <div class="logo-wrapper">
+                        <a href="index.html"><img src="images/logo.png" 
+                            alt="Haze Maze Logo" 
+                            class="logo-icon"
+                            id="logoImage"</a>
+                        <a href="index.html" class="nav-logo">
+                            <span class="logo-text-left">Haze</span>
+                            <span class="logo-text-right">Maze</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <a href="algorithms.html" class="nav-link">Algorithms & AI</a>
+                    <a href="mldl.html" class="nav-link">ML & DL</a>
+                    <a href="datastructures.html" class="nav-link">Data Structures</a>
+                    <a href="games.html" class="nav-link">Games & Interactives</a>
+                    <a href="systems.html" class="nav-link">Systems & Networks</a>
+                    <a href="hci.html" class="nav-link">HCI</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="header">
+            <div class="nupuzzle-container">
+                <h1 class="npuzzle-title">
+                    <div class="algo-label">Project #1</div>
+                    <div class="npuzzle-title">N-Puzzle Solver</div>
+                </h1>
+                <p class="npuzzle-desc">This project implements a solver for the classic 
+                    sliding N-Puzzle game using three fundamental search algorithms: 
+                    Breadth-First Search (BFS), Depth-First Search (DFS), and A* search. 
+                    The solver can handle puzzles of various sizes and provides detailed 
+                    performance metrics for each algorithm.
+                </p>
+                
+                <h2 class="npuzzle-impl">Technical Implementations</h2>
+                <ul class="npuzzle-impl-list">
+                    <li class="npuzzle-impl-item">
+                        <h3>Object-Oriented Architecture</h3>
+                        <p class="npuzzle-impl-desc">The program follows clean OOP 
+                            design principles with clear separation of concerns:<br>
+                            <ul>
+                                <li><strong>Solver:</strong> Coordinates the search process 
+                                    and manages algorithm execution</li>
+                                <li><strong>Frontier classes:</strong> Handle different 
+                                    data structure behaviors (queue for BFS, stack for DFS, 
+                                    priority queue for A*)</li>
+                                <li><strong>PuzzleState:</strong> Represents puzzle configurations 
+                                    and tracks state transitions</li>
+                            </ul>  
+                        </p>
+                        <img src="images/npuzzle_ood.png" alt="N-Puzzle Object Oriented Design Diagram" 
+                            class="npuzzle-ood-diagram"/>
+                    </li>
+                    
+                    <li class="npuzzle-impl-item">
+                        <h3>Performance Metrics/h3>
+                        <p class="npuzzle-impl-desc">The solver tracks comprehensive 
+                            performance data for analysis and comparison:
+                            <ul>
+                                <li>Number of nodes expanded</li>
+                                <li>Maximum search depth reached</li>
+                                <li>Execution runtime</li>
+                                <li>Memory usage</li>
+                            </ul>
+                        </p>
+                    </li>
+                    
+                    <li class="npuzzle-impl-item">
+                        <h3>Search Algorithms</h3>
+                        <p class="npuzzle-impl-desc">Implemented three core search algorithms:
+                            <ol>
+                                <li>1. Breadth-First Search (BFS)
+                                    Explores states by level, guaranteeing shortest solution path 
+                                    but potentially consuming significant memory.</li>
+                                <li>2. Depth-First Search (DFS)
+                                    Explores deep as possible before backtracking. Memory efficient 
+                                    but may find suboptimal solutions.</li>
+                                <li>3. A* Search
+                                    Uses a priority queue to expand most promising states first, 
+                                    guided by a heuristic function. Ensures optimal solutions while 
+                                    maintaining efficiency by pruning search space.</li>
+                            </ol>
+                        </p>
+                    </li>
+
+                    <li class="npuzzle-impl-item">
+                        <h3>Optimizations</h3>
+                        <p class="npuzzle-impl-desc">Efficient data structures drove performance:
+                            <ul>
+                                <li>Heaps for priority queues: O(log n) insertions and deletions in A* search</li>
+                                <li>Sets for state tracking: O(1) lookups to prevent revisiting explored states</li>
+                                <li>Stale entry handling: Manages duplicate entries in priority queue efficiently</li>
+                            </ul>
+                        </p>
+                        <img src="images/efficient_astart.jpg" alt="Efficient A* Search Diagram" 
+                            class="efficient-astar-diagram"/>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sudoku-container">
+                <h1 class="sudoku-title">
+                    <div class="algo-label">Project #2</div>
+                    <div class="sudoku-title">Sudoku Solver with CSP</div>
+                </h1>
+                <p class="sudoku-desc">
+                    This project implements an intelligent Sudoku solver using 
+                    Constraint Satisfaction Problem (CSP) techniques. The solver 
+                    employs backtracking search enhanced with sophisticated heuristics 
+                    and constraint propagation to efficiently solve Sudoku puzzles of 
+                    varying difficulty levels.
+                </p>
+                
+                <h2 class="sudoku-impl">Technical Implementations</h2>
+                <ul class="sudoku-impl-list">
+                    <li class="sudoku-impl-item">
+                        <h3>Constraint Satisfaction Framework</h3>
+                        <p class="sudoku-impl-desc">
+                            Built a complete CSP framework specifically designed for Sudoku:
+                            <ul>
+                                <li><strong>Variables:</strong> 81 cells representing the 9×9 grid</li>
+                                <li><strong>Domains:</strong> Sets of possible values (1-9) for each cell, 
+                                    dynamically pruned during search</li>
+                                <li><strong>Constraints:</strong> No duplicate values in rows, columns, 
+                                    or 3×3 boxes</li>
+                                <li><strong>Peer relationships:</strong> Pre-computed constraint graph 
+                                    mapping each cell to its 20 peers for efficient validation</li>
+                            </ul>  
+                        </p>
+                    </li>
+                    
+                    <li class="sudoku-impl-item">
+                        <h3>Intelligent Search Heuristics</h3>
+                        <p class="sudoku-impl-desc">
+                            Implemented multiple heuristics to guide the search process intelligently:
+                            <ul>
+                                <li><strong>Minimum Remaining Values (MRV):</strong> Selects variables 
+                                    with fewest legal values first, enabling early failure detection 
+                                    and reducing backtracking</li>
+                                <li><strong>Least Constraining Value (LCV):</strong> Orders domain values 
+                                    to try those that eliminate fewest options for neighboring cells, 
+                                    preserving search flexibility</li>
+                                <li><strong>Degree Heuristic:</strong> Breaks ties by selecting cells 
+                                    involved in the most constraints</li>
+                            </ul>
+                        </p>
+                    </li>
+                    
+                    <li class="sudoku-impl-item">
+                        <h3>Constraint Propagation</h3>
+                        <p class="sudoku-impl-desc">
+                            Forward checking dramatically reduces the search space:
+                            <ul>
+                                <li><strong>Domain pruning:</strong> When a value is assigned, 
+                                    immediately removes it from all peer domains</li>
+                                <li><strong>Early failure detection:</strong> Identifies unsolvable 
+                                    states before exploring further, triggering immediate backtracking</li>
+                                <li><strong>Efficient undo mechanism:</strong> Maintains a trail of 
+                                    all domain modifications for O(1) backtracking</li>
+                            </ul>
+                        </p>
+                    </li>
+        
+                    <li class="sudoku-impl-item">
+                        <h3>Performance Metrics</h3>
+                        <p class="sudoku-impl-desc">
+                            Comprehensive testing and analysis across diverse puzzle difficulties:
+                            <ul>
+                                <li><strong>Success rate:</strong> Achieves 99%+ solve rate across 
+                                    400 test puzzles</li>
+                                <li><strong>Runtime analysis:</strong> Tracks mean, standard deviation, 
+                                    minimum, and maximum solve times</li>
+                                <li><strong>Efficiency:</strong> Average solve time under 0.05 seconds 
+                                    per puzzle</li>
+                                <li><strong>Scalability:</strong> Handles both easy and extremely 
+                                    difficult puzzles effectively</li>
+                            </ul>
+                        </p>
+                    </li>
+        
+                    <li class="sudoku-impl-item">
+                        <h3>Algorithm Design Decisions</h3>
+                        <p class="sudoku-impl-desc">
+                            Key architectural choices that optimize performance:
+                            <ul>
+                                <li><strong>Domain representation:</strong> Python sets enable O(1) 
+                                    membership testing and efficient set operations</li>
+                                <li><strong>State separation:</strong> Board tracks explicit assignments 
+                                    while domains track possibilities, preventing premature commits</li>
+                                <li><strong>Tuple-based tie-breaking:</strong> Lexicographic ordering 
+                                    ensures deterministic behavior in heuristic selection</li>
+                                <li><strong>Trail mechanism:</strong> Stack-based undo system allows 
+                                    efficient backtracking without copying entire state</li>
+                            </ul>
+                        </p>
+                    </li>
+                </ul>
+        
+                <div class="sudoku-results">
+                    <h2 class="sudoku-results-title">Performance Results</h2>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-number">99.5%</div>
+                            <div class="result-label">Success Rate</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-number">0.045s</div>
+                            <div class="result-label">Mean Runtime</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-number">400</div>
+                            <div class="result-label">Puzzles Tested</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-number">0.012s</div>
+                            <div class="result-label">Fastest Solve</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai2048-container">
+                <h1 class="ai2048-title">
+                    <div class="algo-label">Project #3</div>
+                    <div class="ai2048-title">2048 Game AI Agent</div>
+                </h1>
+                <p class="ai2048-desc">This project implements an intelligent agent that plays 
+                    the 2048 puzzle game using adversarial search techniques. The AI consistently 
+                    achieves tiles of 2048 and beyond by combining expectiminimax algorithm with 
+                    alpha-beta pruning and sophisticated heuristic evaluation functions.
+                </p>
+                
+                <h2 class="ai2048-impl">Technical Implementations</h2>
+                <ul class="ai2048-impl-list">
+                    <li class="ai2048-impl-item">
+                        <h3>Expectiminimax Algorithm</h3>
+                        <p class="ai2048-impl-desc">Implemented expectiminimax search to handle 
+                            the stochastic nature of 2048's tile placement:
+                            <ul>
+                                <li><strong>MAX nodes:</strong> Player's turn - select move that 
+                                    maximizes expected utility</li>
+                                <li><strong>CHANCE nodes:</strong> Computer's turn - calculate 
+                                    expected value across all possible tile placements (90% 
+                                    probability for 2, 10% for 4)</li>
+                                <li><strong>Recursive evaluation:</strong> Alternates between 
+                                    maximizing player moves and computing probabilistic expectations 
+                                    for opponent moves</li>
+                            </ul>
+                        </p>
+                    </li>
+                    
+                    <li class="ai2048-impl-item">
+                        <h3>Alpha-Beta Pruning</h3>
+                        <p class="ai2048-impl-desc">Enhanced search efficiency through intelligent 
+                            branch elimination:
+                            <ul>
+                                <li>Prunes branches that cannot influence final decision</li>
+                                <li>Move ordering heuristics prioritize promising branches first</li>
+                                <li>Dramatically reduces nodes explored while maintaining optimal decisions</li>
+                            </ul>
+                        </p>
+                    </li>
+                    
+                    <li class="ai2048-impl-item">
+                        <h3>Multi-Faceted Heuristic Evaluation</h3>
+                        <p class="ai2048-impl-desc">Developed weighted combination of strategic heuristics:
+                            <ol>
+                                <li><strong>Rank-Based Monotonicity:</strong> Enforces snake pattern 
+                                    with penalties scaled to tile values - breaking monotonicity with 
+                                    2048-512-1024 is penalized more heavily than with 4-2-4</li>
+                                <li><strong>Large Tile Adjacency:</strong> Rewards positioning high-value 
+                                    tiles (≥64) near similar-valued tiles to facilitate future merges</li>
+                                <li><strong>Small Tile Penalty:</strong> Penalizes boards cluttered 
+                                    with small tiles when large tiles exist, encouraging aggressive 
+                                    consolidation</li>
+                                <li><strong>Merge Potential:</strong> Identifies and values opportunities 
+                                    for immediate tile combinations</li>
+                                <li><strong>Corner Gradient:</strong> Rewards keeping maximum tile in 
+                                    corner with bonus for second-highest tile adjacent to it</li>
+                            </ol>
+                        </p>
+                    </li>
+            
+                    <li class="ai2048-impl-item">
+                        <h3>Optimizations</h3>
+                        <p class="ai2048-impl-desc">Performance enhancements enabled deeper search:
+                            <ul>
+                                <li><strong>Iterative Deepening:</strong> Progressively searches 
+                                    deeper until time limit, ensuring valid move always available</li>
+                                <li><strong>Transposition Table:</strong> Caches previously evaluated 
+                                    board states to avoid redundant calculations, providing 2-5x 
+                                    speedup</li>
+                                <li><strong>Adaptive Depth:</strong> Dynamically adjusts search depth 
+                                    based on board complexity - fewer empty cells allow deeper search</li>
+                                <li><strong>Strategic Sampling:</strong> Prioritizes corner and edge 
+                                    cells in CHANCE nodes to reduce branching factor</li>
+                                <li><strong>Time Management:</strong> Active monitoring prevents 
+                                    timeout violations with 0.2 second move limit</li>
+                            </ul>
+                        </p>
+                    </li>
+                    
+                    <li class="ai2048-impl-item">
+                        <h3>Automated Weight Tuning</h3>
+                        <p class="ai2048-impl-desc">Implemented Bayesian optimization to discover 
+                            optimal heuristic weights:
+                            <ul>
+                                <li>Systematically tests different weight combinations across multiple games</li>
+                                <li>Intelligently explores parameter space using Gaussian process models</li>
+                                <li>Converges to high-performing configurations significantly faster 
+                                    than grid search</li>
+                            </ul>
+                        </p>
+                    </li>
+            
+                    <li class="ai2048-impl-item">
+                        <h3>Performance Results</h3>
+                        <p class="ai2048-impl-desc">The agent demonstrates strong and consistent gameplay:
+                            <ul>
+                                <li>Consistently achieves 2048 tile (>95% success rate)</li>
+                                <li>Regularly reaches 4096 tile in optimized configurations</li>
+                                <li>Maintains strategic board organization throughout gameplay</li>
+                                <li>Executes moves within strict 0.2 second time constraint</li>
+                            </ul>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Back button -->
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="algorithms.html" class="back-button">← Back to Algorithms & AI</a>
+            </div>
+        </header>
+
+        <footer class="footer">
+            <p>&copy; 2024 Hyezel's Portfolio. All rights reserved.</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body> 
+</html>
+
+     
+        <footer class="footer">
+            <p>&copy; 2024 Hyezel's Portfolio. All rights reserved.</p>
+        </footer>
+        <script src="script.js"></script>
+    </body> 
+</html>
