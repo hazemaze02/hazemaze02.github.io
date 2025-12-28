@@ -1,0 +1,464 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Elms Sans", serif;
+    font-style: normal;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFDFA;
+}
+
+.navbar {
+    background-color: #FFFDFA;
+    color: navy;
+    padding: 1rem 0;
+    position: sticky;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    height: 50px;
+    width: minmax(auto, 100px);
+    object-fit: contain;
+    margin-top: 10px;
+}
+
+.nav-logo {
+    font-size: 1.5rem; 
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    display: flex;
+    flex-direction: column;
+    line-height:1.3rem;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer; 
+}
+
+.logo-text-left {
+    color: #ee604b;
+}
+
+.logo-text-right {
+    color: #166082;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: #166082;
+}
+
+.nav-link:active {
+    color: #ee604b;
+    font-weight: 600;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    height: auto;
+    min-height: 60vh;  
+    flex-direction: column;
+}
+
+.main-title {
+    font-size: 5vw;
+    font-weight: 700;
+    text-align: center;
+    color: #111827;
+    display: inline-block
+}
+
+.reversi {
+    position: relative;
+    display: flex;
+    height: auto;
+    min-height: 60vh;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reversi-title {
+    font-size: 3vw;
+    font-weight: 800;
+    text-align: center;
+    color: #FF69B4;
+    display: inline-block
+}
+
+.reversi-game-label {
+    font-size: 2vw;
+    font-weight: 600;
+    text-align: center;
+    color: #FF69B4;
+    margin-top: 1rem;
+    display: inline-block
+}
+
+.reversi-desc {
+    font-size: 1.2vw;
+    text-align: center;
+    color: #374151;
+    margin: 2rem;
+    padding: 0 10%;
+    display: inline-block
+}
+
+.reversi-gui {
+    color: #FF69B4
+}
+
+.gui-image-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.gui-kirby {
+    width: 32%;
+    height: auto;
+    object-fit: contain;
+    margin: 2rem;
+}
+
+.gui-meta {
+    width: 30%;
+    height: auto;
+    object-fit: contain;
+    margin: 2rem;
+}
+
+.reversi-additional-features {
+    text-align: center;
+    color: #FF69B4;
+    display: inline-block;
+    margin: 2rem
+}
+
+.reversi-features-list {
+    color: #FF69B4;
+    text-align: center;
+    margin: 1rem;
+}
+
+.reversi-features-desc {
+    color:#111827;
+    padding: 0 10%;
+    margin: 1rem;
+}
+
+.reversi-square-pic {
+    width: 25%;
+    height: auto;
+    object-fit: contain;
+    padding: 1rem;
+}
+
+.reversi-hint-pic {
+    width: 26%;
+    height: auto;
+    object-fit: contain;
+    padding: 1rem;
+
+}
+
+.reversi-diffview-ours-pic {
+    width: 25%;
+    height: auto;
+    object-fit: contain;
+    padding: 1rem;
+
+}
+
+.reversi-diffview-theirs-pic {
+    width: 20%;
+    height: auto;
+    object-fit: contain;
+    padding: 1rem;
+
+}
+
+.reversi-og-pic {
+    width: 25%;
+    height: auto;
+    object-fit: contain;
+    padding: 1rem;
+
+}
+
+.reversi-fallback-pic {
+    width: 21.3%;
+    height: auto;
+    object-fit: contain;
+    padding: 1rem;
+
+}
+
+.klondike {
+    position: relative;
+    display: flex;
+    height: auto;
+    min-height: 60vh;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.klondike-title {
+    color: #c54000;
+    font-size: 3vw;
+    font-weight: 800;
+    text-align: center;
+    display: inline-block
+}
+
+.klondike-game-label {
+    font-size: 2vw;
+    font-weight: 600;
+    text-align: center;
+    color: #c54000;
+    margin-top: 1rem;
+    display: inline-block
+}
+
+.klondike-desc {
+    font-size: 1.2vw;
+    text-align: center;
+    color: #374151;
+    margin: 2rem;
+    padding: 0 10%;
+    display: inline-block
+}
+
+.klondike-implementation {
+    text-align: center;
+    color: #c54000;
+    display: inline-block;
+    margin: 2rem
+}
+
+.klondike-impl-desc {
+    color:#374151;
+    padding: 0 10%;
+}
+
+.klondike-variants {
+    text-align: center;
+    color: #c54000;
+    display: inline-block;
+    margin: 2rem
+}
+
+.klondike-variant-item {
+    color: #374151;
+    text-align: center;
+    margin: 1rem;
+}
+
+.klondike-variant-desc {
+    color:#374151;
+    padding: 0 10%;
+    margin: 1rem;
+}
+
+.klondike-design {
+    text-align: center;
+    color: #c54000;
+    display: inline-block;
+    margin: 2rem
+}
+
+.klondike-design-desc {
+    color:#374151;
+    padding: 0 10%;
+    margin: 1rem;
+}
+
+.klondike-design-subheading {
+    color:#374151;
+    padding: 0 10%;
+    margin: 1rem;
+    font-weight: 600;
+}
+
+.klondike-runthrough-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.klondike-runthrough {
+    width: 20%;
+    height: auto;
+    object-fit: contain;
+    margin: 2rem;
+}
+
+.nav-link.active {
+    color: #3b82f6;           /* Blue color for active page */
+    font-weight: 600;          /* Bold */
+    border-bottom: 2px solid #3b82f6;  /* Optional: underline */
+}
+
+.puzzle-container {
+    width: 100%;
+    height: 50%;
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: 20% 20% 10% 10% 20% 20%; 
+    grid-template-rows: 20% 20% 20% 20% 20%; 
+}
+
+.class-blocks {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    padding-right: 2rem;
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.puzzle-bg {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    width: 90%;
+    height: auto;
+    max-height: none;
+    padding: 2rem;
+    object-fit: contain;
+}
+
+.coms4995nrg-puzzle {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.welcome {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-content {
+    max-width: 40%;
+    text-align: center;
+}
+
+.welcome h2 {
+    font-size: 3vw;
+    margin-bottom: 2rem;
+    color: #000;
+}
+
+.welcome p {
+    font-size: 1.5vw;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.psyc3458-puzzle {
+    width: 15%;
+    height: auto;
+    object-fit: contain;
+}
+
+.psyc3466-puzzle {
+    width: 10%;
+    height: auto;
+    object-fit: contain;
+}
+
+.second-puzzle-container {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    padding-top: 2rem;
+}
+
+.second-class-blocks {
+    width: 40%;
+    height: auto;
+    object-fit: contain;
+    padding-left: 2rem;
+
+}
+
+.footer {
+    background-color: #FFFDFA;
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}
+
+.stacked-images {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 70%;
+    margin: 0 auto;              /* Centers the container, no top/bottom margin */
+    gap: 0;                      /* No gaps between images */
+}
+
+.shift-left {
+    transform: translateX(-20px);    /* Shifts 20px to the left */
+}
+
+.stacked-images img {
+    width: 100%;                 /* Full width of container (95% of screen) */
+    height: auto;
+    display: block;              /* Removes any default spacing below images */
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hyezel's Portfolio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <div class="logo-wrapper">
+                        <a href="index.html"><img src="images/logo.png" 
+                            alt="Haze Maze Logo" 
+                            class="logo-icon"
+                            id="logoImage"</a>
+                        <a href="index.html" class="nav-logo">
+                            <span class="logo-text-left">Haze</span>
+                            <span class="logo-text-right">Maze</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <a href="algorithms.html" class="nav-link">Algorithms & AI</a>
+                    <a href="mldl.html" class="nav-link">ML & DL</a>
+                    <a href="datastructures.html" class="nav-link">Data Structures</a>
+                    <a href="games.html" class="nav-link">Games & Interactives</a>
+                    <a href="systems.html" class="nav-link">Systems & Networks</a>
+                    <a href="hci.html" class="nav-link">HCI</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="header">
+            <div class="reversi">
+                <h1 class="reversi-title">
+                    <div class="reversi-game-label">Game #1</div>
+                    <div class=game-title">Reversi the Kirby</div>
+                </h1>
+                <p class="reversi-desc">For one of my assignments in Object-Oriented Programming, 
+                    I was tasked with programming a game called Reversi. 
+                    Reversi is a multi-player game where users are represented 
+                    by either a black (represented by Kirby in our version) or
+                    white (Meta Knight) disc; both compete against each other 
+                    and aim to flip as many of the opponent's discs as possible. 
+                    Whoever has the most number of discs on their side wins the game. 
+                    A standard game of Reversi employs a square-shaped board, but 
+                    for our assignment, we were instructed to design a hexagonal 
+                    version of Reversi. We used a Model View Controller approach 
+                    when designing our program.</p>
+                
+                <h2 class="reversi-gui">Graphical User Interface</h2>
+                <div class="gui-image-row">
+                    <img src="images/gui_kirby.png" alt="Reversi the Kirby GUI" class="gui-kirby"/>
+                    <img src="images/gui_meta.png" alt="Reversi the Meta Knight GUI" class="gui-meta"/>
+                </div>
+                
+                <h2 class="reversi-additional-features">Additional Features</h2>
+                <ul class="reversi-features-list">
+                    <li class="reversi-feature-item">
+                        <h3>AI Players</h3>
+                        <video controls width="100%" style="max-width: 600px; margin: 2rem auto; display: block; border-radius: 8px;">
+                            <source src="videos/reversi-full-runthrough.mp4" type="video/mp4"></video>
+                        <p class="reversi-features-desc">There are four types of AI players in our game, each implementing 
+                            different strategies to beat the opponent (e.g., one AI strategy 
+                            is to capture as many discs as possible; another strategy is to 
+                            prevent the opponent's next move). In the video to the left, 
+                            the first player (Kirby) is a human player, competing against 
+                            the second AI player (Meta Knight) whose strategy is to capture 
+                            as many discs as possible. Users can choose whether they want the 
+                            AI player to be Kirby or Meta Knight.. or even better, AI vs. 
+                            AI.</p>
+                       
+                    </li>
+                    
+                    <li class="reversi-feature-item">
+                        <h3>Square Board</h3>
+                        <img src="images/square.png" alt="Square Board Reversi" class="reversi-square-pic"/>
+                        <p class="reversi-features-desc">In this version of Reversi, users can choose to play with a square-shaped 
+                            board rather than a hexagonal board. Implementing this feature was fairly 
+                            simple as we had been abstracting our design appropriately and there were 
+                            no unnecessary coupling between our actual board and the rules of the game. 
+                            As such, all features (including the AI players) from our hexagonal version 
+                            worked with our square version as well.</p>
+                    </li>
+                    
+                    <li class="reversi-feature-item">
+                        <h3>Hints</h3>
+                        <img src="images/hint.png" alt="Reversi Hint Feature" class="reversi-hint-pic"/>
+                        <p class="reversi-features-desc">If the user presses on the 'H' key, they can activate hints on their window 
+                            of the game. When activating this hint and selecting on a particular cell, 
+                            this hint tells the user how many discs of the opponent's they would be 
+                            flipping if they were to make a move on that disc. Hints can be deactivated 
+                            the same way they were activated.</p>
+                    </li>
+                    
+                    <li class="reversi-feature-item">
+                        <h3>Provider Integration</h3>
+                        <div class="image-row">
+                            <img src="images/reversi_diffview_ours.png" alt="Our Integration" class="reversi-diffview-ours-pic"/>
+                            <img src="images/reversi_diffview_theirs.png" alt="Their View" class="reversi-diffview-theirs-pic"/>
+                        </div>
+                        <p class="reversi-features-desc">As an extension of this assignment, we received code from our providers. 
+                            Their provided code included their view and strategy implementations. 
+                            Using mock classes, we integrated their view to our model and controller.</p>
+                    </li>
+            
+                    <li class="reversi-feature-item">
+                        <h3>Fallback Design</h3>
+                        <div class="image-row">
+                            <img src="images/og_design.png" alt="Original Design" class="reversi-og-pic"/>
+                            <img src="images/fallback.png" alt="Fallback Design" class="reversi-fallback-pic"/>
+                        </div>
+                        <p class="reversi-features-desc">This process of customizing our interface was not simple. Not only were we 
+                            navigating how to use Java's Swing library, but we also faced various 
+                            difficulties with having our custom images compile during run-time. 
+                            I attended office-hours consecutively and even had to schedule time 
+                            with my professor outside of their office hours to make this work. 
+                            Eventually, we had to implement fall-back methods and learn how to 
+                            use a resource directory. The left picture is the view we were originally
+                            provided in the assignment spec.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="klondike">
+                <h1 class="klondike-title">
+                    <div class="klondike-game-label">Game #2</div>
+                    <div class="game-title">Klondike Solitaire</div>
+                </h1>
+                <p class="klondike-desc">For one of our first projects in 
+                    Object-Oriented Programming, we designed Klondike (also known as Solitaire), 
+                    a popular single-player card game played with a standard 52-card deck. 
+                    The objective is to build four foundation piles in ascending order from Ace 
+                    to King, with each pile representing one suit.</p>
+                <div class="klondike-runthrough-container">
+                    <img src="images/klondike-game-runthrough.png" alt="Klondike Game Runthrough" class="klondike-runthrough"/>
+                    <img src="images/klondike-game-runthrough_2.png" alt="Klondike Game Runthrough 2" class="klondike-runthrough"/>
+                </div>
+                <h2 class="klondike-implementation">Implementation Details</h2>
+                <p class="klondike-impl-desc">This assignment required implementing the Model-View-Controller 
+                    (MVC) design pattern. The view displays a textual representation showing the piles, 
+                    current score, and the first card of the draw pile. Users interact with the game 
+                    through textual commands sent to the controller, which updates the model accordingly.
+                </p>
+
+                <h2 class="klondike-variants">Game Variants</h2>
+                <ul class="klondike-variants-list">
+                    <li class="klondike-variant-item">
+                        <h3>1. Basic Klondike</h3>
+                        <p class="klondike-variant-desc">The classic version with standard rules: 
+                            build foundation piles in ascending order by suit, and cascade piles 
+                            in descending order with alternating colors.</p>
+                    </li>
+                    
+                    <li class="klondike-variant-item">
+                        <h3>2. Whitehead Klondike (WHK)</h3>
+                        <p class="klondike-variant-desc">A variant with modified rules: 
+                            valid runs consist of cards of the same color (rather than alternating colors), 
+                            and when moving multiple cards across cascade piles, the build must consist of 
+                            the same suit.</p>
+                    </li>
+
+                    <li class="klondike-variant-item">
+                        <h3>3. Limited Draw Klondike (LDK)</h3>
+                        <p class="klondike-variant-desc">This version introduces a strategic constraint: 
+                            players have a limited number of redraws allowed for the draw card, 
+                            adding an extra layer of difficulty and requiring more careful planning.</p>
+                        </li>
+                </ul>
+
+                <h2 class="klondike-design">Design Approach</h2>
+                <h3 class="klondike-design-subheading">Abstraction & Code Reusability</h3>
+                <p class="klondike-design-desc">To avoid redundant code, I abstracted the basic 
+                    rules of Klondike that apply across all three variants into an abstract base class. 
+                    Each variant (Basic, Whitehead, and Limited Draw) extends this abstract class, 
+                    inheriting common functionality while implementing their specific rule variations. 
+                    This design demonstrates proper object-oriented principles including inheritance, 
+                    polymorphism, and the DRY (Don't Repeat Yourself) principle.</p>
+            </div>
+            
+            <!-- Back to Games button -->
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="games.html" class="back-button">← Back to Games</a>
+            </div>
+        </header>
+
+        <footer class="footer">
+            <p>&copy; 2024 Hyezel's Portfolio. All rights reserved.</p>
+        </footer>
+        <script src="script.js"></script>
+
+    </body> 
+</html>
