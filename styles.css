@@ -451,7 +451,7 @@ body {
     margin: 2rem;
 }
 
-.stacked-images-ai {
+.stacked-images-algai {
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -464,7 +464,7 @@ body {
     transform: translateX(-20px);    /* Shifts 20px to the left */
 }
 
-.stacked-images img {
+.stacked-images-algai img {
     width: 100%;                 /* Full width of container (95% of screen) */
     height: auto;
     display: block;              /* Removes any default spacing below images */
@@ -484,4 +484,3 @@ body {
     height: auto;
     display: block;              /* Removes any default spacing below images */
 }
-
