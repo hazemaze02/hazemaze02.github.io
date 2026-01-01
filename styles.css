@@ -479,12 +479,9 @@ body {
     gap: 0;                      /* No gaps between images */
 }
 
-.second-dlcvfp {
-    transform: translateX(-20px);    /* Shifts 20px to the left */
-}
-
 .stacked-images-mldl img {
     width: 100%;                 /* Full width of container (95% of screen) */
     height: auto;
     display: block;              /* Removes any default spacing below images */
 }
+
