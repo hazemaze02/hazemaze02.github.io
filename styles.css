@@ -479,8 +479,3 @@ body {
     gap: 0;                      /* No gaps between images */
 }
 
-.stacked-images-mldl img {
-    width: 100%;                 /* Full width of container (95% of screen) */
-    height: auto;
-    display: block;              /* Removes any default spacing below images */
-}
