@@ -451,7 +451,7 @@ body {
     margin: 2rem;
 }
 
-.stacked-images {
+.stacked-images-ai {
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -465,6 +465,25 @@ body {
 }
 
 .stacked-images img {
+    width: 100%;                 /* Full width of container (95% of screen) */
+    height: auto;
+    display: block;              /* Removes any default spacing below images */
+}
+
+.stacked-images-mldl {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 70%;
+    margin: 0 auto;              /* Centers the container, no top/bottom margin */
+    gap: 0;                      /* No gaps between images */
+}
+
+.second-dlcvfp {
+    transform: translateX(-20px);    /* Shifts 20px to the left */
+}
+
+.stacked-images-mldl img {
     width: 100%;                 /* Full width of container (95% of screen) */
     height: auto;
     display: block;              /* Removes any default spacing below images */
