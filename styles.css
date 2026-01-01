@@ -479,3 +479,8 @@ body {
     gap: 0;                      /* No gaps between images */
 }
 
+.stacked-images-mldl img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
