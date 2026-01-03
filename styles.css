@@ -484,3 +484,15 @@ body {
     height: auto;
     display: block;
 }
+
+.stacked-images-nrg {
+    padding: 4rem 2rem; /* Adjust spacing as needed */
+    text-align: center; /* Centers the image */
+}
+
+.stacked-images-nrg img {
+    max-width: 70%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centers the image */
+}
