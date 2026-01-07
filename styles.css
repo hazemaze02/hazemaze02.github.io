@@ -491,7 +491,7 @@ body {
 }
 
 .stacked-images-nrg img {
-    max-width: 90%;
+    max-width: 85%;
     height: auto;
     display: block;
     margin: 0 auto; /* Centers the image */
