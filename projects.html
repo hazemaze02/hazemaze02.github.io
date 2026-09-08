@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Featured Projects | Hyezel's Portfolio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <div class="logo-wrapper">
+                        <a href="index.html"><img src="images/logo.png"
+                            alt="Haze Maze Logo"
+                            class="logo-icon"
+                            id="logoImage"></a>
+                        <a href="index.html" class="nav-logo">
+                            <span class="logo-text-left">Haze</span>
+                            <span class="logo-text-right">Maze</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="projects.html" class="nav-link">Featured Projects</a>
+                    <a href="research.html" class="nav-link">Research</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="experience.html" class="nav-link">Experience</a>
+                    <a href="coursework.html" class="nav-link">Labs & Coursework</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <h1 class="page-title">Featured Projects</h1>
+            <p class="page-subtitle">
+                A few projects that best represent where my work is right now,
+                spanning sparse-view 3D reconstruction, gaze-aware wearables, and
+                brain-computer interfaces.
+            </p>
+        </header>
+
+        <section class="projects-grid">
+            <div class="project-card">
+                <span class="project-tag status-research">Grad Research</span>
+                <h3>CBCT Reconstruction via 3D Gaussian Splatting</h3>
+                <p class="project-subtitle">Columbia University Irving Medical Center · under Prof. Yading Yuan</p>
+
+                <p class="field-label">What &amp; why</p>
+                <p>
+                    Investigated whether a patient's existing planning CT (already
+                    acquired and co-registered before radiotherapy) could serve as a
+                    better starting point than the standard noisy FDK reconstruction
+                    when using 3D Gaussian Splatting to reconstruct ultra-sparse-view
+                    CBCT: the kind of severely undersampled data produced when a
+                    single scan is split into breathing-phase bins for 4D
+                    motion-resolved radiotherapy imaging.
+                </p>
+
+                <p class="field-label">My contribution</p>
+                <p>
+                    Built the full experimental pipeline end-to-end: converting and
+                    normalizing the SynthRAD2025 CT/CBCT dataset, simulating
+                    sparse-view acquisitions via forward projection, designing a
+                    body-masked evaluation protocol to correct a background-air bias
+                    that was substantially overstating initial results, and
+                    independently validating the finding across two separate
+                    Gaussian Splatting codebases (R²-Gaussian and FaCT-GS) with
+                    paired statistical testing.
+                </p>
+
+                <p class="field-label">Outcome</p>
+                <p>
+                    Results were compiled into an abstract and supplemental
+                    manuscript submitted to SPIE Medical Imaging 2026 (Image
+                    Processing track). Decision is pending; it hasn't been accepted
+                    or published. Currently prototyping a follow-up extension (a
+                    NeRP-inspired two-stage training design that optimizes Gaussians
+                    directly against the planning CT before sparse-view fine-tuning)
+                    under active development with my PI.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <span class="project-tag status-progress">Prototype / In Progress</span>
+                <h3>Gaze-Contingent Selective Dimming</h3>
+                <p class="project-subtitle">MediaPipe · Depth Anything V2 · SAM</p>
+
+                <p class="field-label">What &amp; why</p>
+                <p>
+                    A video-passthrough prototype exploring gaze-contingent
+                    selective dimming: the idea that a wearable display could use
+                    real-time gaze tracking to detect what a person is actually
+                    attending to, then selectively dim or de-emphasize the rest of
+                    the visual field. Ties back to a broader interest in
+                    attention-aware wearables: if a system can tell where someone's
+                    focus is, it could reduce visual distraction in learning or work
+                    environments rather than presenting everything with equal
+                    visual weight.
+                </p>
+
+                <p class="field-label">My contribution</p>
+                <p>
+                    Building the core perception pipeline: iris/gaze tracking via
+                    MediaPipe, depth estimation using Depth Anything V2 (with MiDaS
+                    as a comparison/fallback), and segmentation via SAM to isolate
+                    the attended region from the rest of the scene. Also designing
+                    the multi-rate pipeline architecture needed to run these
+                    components together, since gaze tracking needs to update much
+                    faster than segmentation or depth estimation, so staging and
+                    synchronizing components at different rates is a core part of
+                    the engineering problem.
+                </p>
+
+                <p class="field-label">Current status</p>
+                <p>
+                    This is an early-stage prototype, not a finished system. The
+                    individual components (gaze tracking, depth estimation,
+                    segmentation) are working and are being integrated into the
+                    multi-rate pipeline, but there is no complete end-to-end demo,
+                    quantitative evaluation, or user testing yet. Best described as
+                    active, in-progress exploration rather than a completed
+                    project.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <span class="project-tag status-research">Hackathon · BCI</span>
+                <h3>NeuroRead</h3>
+                <p class="project-subtitle">EEG-Based Speech Decoding with Semantic Comprehension Scoring · Neurohackathon, San Francisco, 2025</p>
+
+                <p>
+                    A non-invasive brain-computer interface that decodes what a
+                    person is reading from EEG brain signals and measures how well
+                    their brain is understanding each concept, aimed at adaptive,
+                    personalized education.
+                </p>
+
+                <p class="field-label">Headline results</p>
+                <p>
+                    66.7% top-10 word retrieval accuracy on EEG-to-text decoding
+                    (vs. 1.1% chance baseline), plus a trend toward the expected
+                    N400 semantic-violation effect on real EEG data (p = 0.097,
+                    not significant at conventional thresholds).
+                </p>
+
+                <a href="neuroread.html" class="card-link">Read the full case study →</a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="resume.pdf" class="footer-link">Resume</a>
+                <a href="mailto:hyezellim@gmail.com" class="footer-link">Email</a>
+                <a href="https://www.linkedin.com/in/hazelim/" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/hazemaze02" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <p>&copy; 2026 Hazel Lim. All rights reserved.</p>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>

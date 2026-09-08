@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NeuroRead: EEG-Based Speech Decoding</title>
+        <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="neuroread.css" />
+    </head>
+
+    <body>
+        <nav class="nr-top-nav">
+            <a href="projects.html">← Back to Featured Projects</a>
+        </nav>
+
+        <header class="nr-hero">
+            <div class="nr-eyebrow">Case Study</div>
+            <h1>NeuroRead</h1>
+            <p class="nr-subtitle">EEG-Based Speech Decoding with Semantic Comprehension Scoring</p>
+            <p class="nr-meta">Neurohackathon, San Francisco 2025 · Track: Non-Invasive Speech Decoding</p>
+            <p class="nr-pitch">
+                A non-invasive brain-computer interface that decodes what a person
+                is reading from EEG brain signals and measures how well their brain
+                is understanding each concept, to enable adaptive, personalized
+                education.
+            </p>
+        </header>
+
+        <section class="nr-section nr-reveal">
+            <h2>The <span class="nr-h2-accent">Problem</span></h2>
+            <p>
+                Current educational tools have no way of measuring whether a
+                student understood what they just read in real time. Comprehension
+                is only assessed after the fact through quizzes and tests. By
+                then, the moment of confusion has already passed.
+            </p>
+            <p>
+                The brain produces measurable signals at the exact moment of
+                confusion. The N400, a neural signature peaking around 400ms
+                after a word is seen, directly reflects how hard the brain is
+                working to integrate the meaning of each word. We built a system
+                to capture and use this signal.
+            </p>
+        </section>
+
+        <section class="nr-section nr-wide nr-reveal">
+            <h2>The <span class="nr-h2-accent">Pipeline</span></h2>
+            <div class="nr-pipeline">
+                <div class="nr-stage">
+                    <div class="nr-stage-connector">
+                        <div class="nr-stage-number">1</div>
+                        <div class="nr-stage-line"></div>
+                    </div>
+                    <div class="nr-stage-body">
+                        <span class="nr-stage-tag">Data Collection</span>
+                        <h3>Recording brain activity while reading</h3>
+                        <ul>
+                            <li>Hardware: BCI Core-8 consumer EEG headset, 8 channels, 250Hz</li>
+                            <li>Paradigm: Rapid Serial Visual Presentation (RSVP)</li>
+                            <li>Each word flashed on screen triggers a precise timestamp in the EEG recording</li>
+                            <li>30 sentences presented, including semantically incongruent words to elicit N400 responses</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="nr-stage">
+                    <div class="nr-stage-connector">
+                        <div class="nr-stage-number">2</div>
+                        <div class="nr-stage-line"></div>
+                    </div>
+                    <div class="nr-stage-body">
+                        <span class="nr-stage-tag">Preprocessing</span>
+                        <h3>Cleaning the signal</h3>
+                        <ul>
+                            <li>Select EEG channels only (drop EMG/EOG)</li>
+                            <li>Bandpass filter 0.1–40 Hz, downsample to 50 Hz</li>
+                            <li>Robust scaling per channel (median subtraction, IQR normalization)</li>
+                            <li>Cut 3-second epochs at each word onset; baseline correction over the first 500ms</li>
+                            <li>Hard clamp values to ±5 to remove extreme artifacts</li>
+                            <li>Final input shape: 8 channels × 150 time points + 2D electrode positions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="nr-stage">
+                    <div class="nr-stage-connector">
+                        <div class="nr-stage-number">3</div>
+                        <div class="nr-stage-line"></div>
+                    </div>
+                    <div class="nr-stage-body">
+                        <span class="nr-stage-tag">Our Contribution</span>
+                        <h3>N400 Feature Extraction</h3>
+                        <ul>
+                            <li>N400 amplitude: mean voltage at centro-parietal channels, 300–500ms window, reflecting semantic processing difficulty per word</li>
+                            <li>Theta band power (4–8 Hz): measures working memory load per word</li>
+                            <li>Both z-score normalized and concatenated into the EEG feature vector</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="nr-stage">
+                    <div class="nr-stage-connector">
+                        <div class="nr-stage-number">4</div>
+                        <div class="nr-stage-line"></div>
+                    </div>
+                    <div class="nr-stage-body">
+                        <span class="nr-stage-tag">Decoding</span>
+                        <h3>EEG-to-Text Decoding</h3>
+                        <ul>
+                            <li>Built on model architecture publicly released by Meta researchers</li>
+                            <li>CNN: learns spatial patterns across electrodes and temporal patterns within each epoch</li>
+                            <li>Transformer: looks across the entire sentence, using surrounding word context to refine each prediction</li>
+                            <li>Maps brain signal to T5 word embedding space; cosine similarity retrieval returns top-K word candidates per position</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="nr-stage">
+                    <div class="nr-stage-connector">
+                        <div class="nr-stage-number">5</div>
+                    </div>
+                    <div class="nr-stage-body">
+                        <span class="nr-stage-tag">Our Contribution</span>
+                        <h3>LLM Semantic Correction</h3>
+                        <ul>
+                            <li>Language model receives the top-K candidate grid plus the per-word N400 signal</li>
+                            <li>Uses linguistic context and the brain's difficulty signal together</li>
+                            <li>Reconstructs the most semantically coherent sentence</li>
+                            <li>The N400 signal tells the LLM where in the sentence to focus correction effort</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nr-section nr-wide nr-reveal">
+            <h2>Results</h2>
+
+            <div class="nr-stat-group-title">EEG-to-Text Decoding</div>
+            <div class="nr-stat-grid">
+                <div class="nr-stat-card">
+                    <span class="nr-stat-value">66.7%</span>
+                    <span class="nr-stat-label">Top-10 retrieval accuracy</span>
+                </div>
+                <div class="nr-stat-card">
+                    <span class="nr-stat-value">5.5–6.7%</span>
+                    <span class="nr-stat-label">Top-1 retrieval accuracy</span>
+                </div>
+                <div class="nr-stat-card">
+                    <span class="nr-stat-value">31.8%</span>
+                    <span class="nr-stat-label">BERT semantic similarity</span>
+                </div>
+                <div class="nr-stat-card">
+                    <span class="nr-stat-value">0.627</span>
+                    <span class="nr-stat-label">Contrastive cosine similarity</span>
+                </div>
+                <div class="nr-stat-card">
+                    <span class="nr-stat-value nr-stat-neutral">1.1%</span>
+                    <span class="nr-stat-label">Chance baseline (top-10)</span>
+                </div>
+            </div>
+            <div class="nr-stat-note">
+                Top-10 of 66.7% means the correct word appeared in the model's top
+                10 guesses two-thirds of the time, versus 1.1% by chance.
+            </div>
+
+            <div class="nr-stat-group-title">N400 Detection on Real EEG</div>
+            <div class="nr-stat-grid">
+                <div class="nr-stat-card">
+                    <span class="nr-stat-value">t = 1.67</span>
+                    <span class="nr-stat-label">t-statistic</span>
+                </div>
+                <div class="nr-stat-card">
+                    <span class="nr-stat-value">p = 0.097</span>
+                    <span class="nr-stat-label">p-value</span>
+                </div>
+                <div class="nr-stat-card">
+                    <span class="nr-stat-value">0.22</span>
+                    <span class="nr-stat-label">Cohen's d</span>
+                </div>
+                <div class="nr-stat-card">
+                    <span class="nr-stat-value nr-stat-neutral">P7, P8</span>
+                    <span class="nr-stat-label">Strongest channels (posterior parietal)</span>
+                </div>
+            </div>
+            <div class="nr-stat-note">
+                A <strong>trend</strong> toward the expected N400 effect was observed
+                with a consumer 8-channel headset: incongruent words produced more
+                negative voltage in the 300–500ms window at posterior parietal
+                sites, consistent with neuroscience literature. At p = 0.097,
+                though, this does not reach statistical significance at
+                conventional thresholds (p &lt; 0.05).
+            </div>
+        </section>
+
+        <section class="nr-section nr-wide nr-reveal">
+            <h2>Our <span class="nr-h2-accent">Contributions</span></h2>
+            <div class="nr-contrib-grid">
+                <div class="nr-contrib-card">
+                    <div class="nr-contrib-num">01</div>
+                    <h3>N400 feature integration</h3>
+                    <p>Neural comprehension markers extracted per epoch and fed as additional model inputs.</p>
+                </div>
+                <div class="nr-contrib-card">
+                    <div class="nr-contrib-num">02</div>
+                    <h3>LLM correction guided by N400</h3>
+                    <p>The brain's difficulty signal directs where the language model focuses sentence correction.</p>
+                </div>
+                <div class="nr-contrib-card">
+                    <div class="nr-contrib-num">03</div>
+                    <h3>Consumer hardware validation</h3>
+                    <p>N400 trend detectable with 8-channel consumer EEG, supporting real-world educational deployment.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="nr-section nr-reveal">
+            <div class="nr-limitations">
+                <h2>Honest Limitations</h2>
+                <ul>
+                    <li>Trained on a small dataset; ZuCo-scale data would improve accuracy</li>
+                    <li>8 channels provides limited spatial resolution vs. 64-channel setups</li>
+                    <li>N400 effect size is small on single trials, and did not reach conventional statistical significance (p = 0.097)</li>
+                    <li>Current pipeline is offline, not real-time</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="nr-section nr-wide nr-reveal">
+            <h2>Tech Stack</h2>
+
+            <div class="nr-tech-group">
+                <div class="nr-tech-group-label">EEG Hardware</div>
+                <div class="nr-badges"><span class="nr-badge">BCI Core-8 (8ch, 250Hz)</span></div>
+            </div>
+
+            <div class="nr-tech-group">
+                <div class="nr-tech-group-label">Signal Processing</div>
+                <div class="nr-badges">
+                    <span class="nr-badge">MNE-Python</span>
+                    <span class="nr-badge">SciPy</span>
+                </div>
+            </div>
+
+            <div class="nr-tech-group">
+                <div class="nr-tech-group-label">Deep Learning</div>
+                <div class="nr-badges">
+                    <span class="nr-badge">PyTorch</span>
+                    <span class="nr-badge">HuggingFace Transformers</span>
+                </div>
+            </div>
+
+            <div class="nr-tech-group">
+                <div class="nr-tech-group-label">Architecture</div>
+                <div class="nr-badges"><span class="nr-badge">CNN encoder + Transformer (based on Meta BrainMagick)</span></div>
+            </div>
+
+            <div class="nr-tech-group">
+                <div class="nr-tech-group-label">Word Embeddings</div>
+                <div class="nr-badges"><span class="nr-badge">T5-small</span></div>
+            </div>
+
+            <div class="nr-tech-group">
+                <div class="nr-tech-group-label">Contrastive Loss</div>
+                <div class="nr-badges">
+                    <span class="nr-badge">SigLIP</span>
+                    <span class="nr-badge">D-SigLIP</span>
+                </div>
+            </div>
+
+            <div class="nr-tech-group">
+                <div class="nr-tech-group-label">LLM Correction</div>
+                <div class="nr-badges"><span class="nr-badge">Claude API</span></div>
+            </div>
+
+            <div class="nr-tech-group">
+                <div class="nr-tech-group-label">Experiment Design</div>
+                <div class="nr-badges"><span class="nr-badge">RSVP paradigm, 30 sentences</span></div>
+            </div>
+
+            <div class="nr-tech-group">
+                <div class="nr-tech-group-label">Reference Dataset</div>
+                <div class="nr-badges"><span class="nr-badge">ZuCo</span></div>
+            </div>
+        </section>
+
+        <section class="nr-section nr-reveal">
+            <h2>Key Papers</h2>
+            <ul class="nr-papers">
+                <li>Défossez et al. (2023). Decoding speech perception from non-invasive brain recordings. <em>Nature Machine Intelligence.</em></li>
+                <li>d'Ascoli et al. (2025). Towards decoding individual words from non-invasive brain recordings. <em>Nature Communications.</em></li>
+                <li>Duan et al. (2023). DeWave: Discrete EEG Waves Encoding for Brain Dynamics to Text Translation. <em>NeurIPS.</em></li>
+            </ul>
+        </section>
+
+        <section class="nr-vision nr-reveal">
+            <div class="nr-vision-inner">
+                <p>
+                    As learners ourselves, we understand that learning can be a
+                    difficult and frustrating process, and that there is no single
+                    remedy. Every learner thinks and processes information
+                    differently. With this project, we hoped to contribute toward a
+                    system that meets learners where they are, making learning a
+                    more rewarding and accessible experience for everyone.
+                </p>
+                <p>
+                    If parts of this explanation were hard to follow, that is
+                    exactly the problem we are trying to solve. Imagine a future
+                    where a lightweight wearable device could detect which concepts
+                    did not land, and automatically generate a more tailored
+                    explanation just for you.
+                </p>
+            </div>
+        </section>
+
+        <footer class="nr-footer">
+            <a href="projects.html">← Back to Featured Projects</a>
+        </footer>
+
+        <script src="neuroread.js"></script>
+    </body>
+</html>

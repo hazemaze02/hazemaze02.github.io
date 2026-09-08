@@ -1,0 +1,427 @@
+:root {
+    --bg: #0a1628;
+    --bg-alt: #0e1e36;
+    --card-bg: #12233f;
+    --card-bg-alt: #16294a;
+    --border: #1e3a5f;
+    --text: #e8eef5;
+    --text-dim: #9fb3c8;
+    --accent: #2dd4bf;
+    --accent-2: #38bdf8;
+    --warn: #fbbf24;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Elms Sans", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+}
+
+a {
+    color: var(--accent);
+}
+
+.nr-top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(10, 22, 40, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.9rem 1.5rem;
+}
+
+.nr-top-nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.nr-top-nav a:hover {
+    color: var(--accent);
+}
+
+.nr-hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 3rem;
+    text-align: center;
+}
+
+.nr-hero .nr-eyebrow {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+}
+
+.nr-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(90deg, #e8eef5, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nr-hero .nr-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    margin-bottom: 1.25rem;
+}
+
+.nr-hero .nr-meta {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.nr-hero .nr-pitch {
+    font-size: 1.15rem;
+    color: var(--text);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.nr-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem;
+}
+
+.nr-section.nr-wide {
+    max-width: 1100px;
+}
+
+.nr-section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+}
+
+.nr-section h2 .nr-h2-accent {
+    color: var(--accent);
+}
+
+.nr-section p {
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+}
+
+.nr-section p strong {
+    color: var(--text);
+}
+
+/* ---------- Reveal on scroll ---------- */
+
+.nr-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.nr-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Pipeline diagram ---------- */
+
+.nr-pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.nr-stage {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    padding-bottom: 2.5rem;
+}
+
+.nr-stage:last-child {
+    padding-bottom: 0;
+}
+
+.nr-stage-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.nr-stage-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--card-bg-alt);
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.nr-stage-line {
+    flex: 1;
+    width: 2px;
+    background: var(--border);
+    margin: 0.25rem 0;
+}
+
+.nr-stage-body {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    flex: 1;
+}
+
+.nr-stage-body h3 {
+    color: var(--text);
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+}
+
+.nr-stage-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent-2);
+    margin-bottom: 0.5rem;
+}
+
+.nr-stage-body ul {
+    margin-left: 1.1rem;
+    color: var(--text-dim);
+    font-size: 0.92rem;
+}
+
+.nr-stage-body li {
+    margin-bottom: 0.35rem;
+}
+
+/* ---------- Stat cards ---------- */
+
+.nr-stat-group-title {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.nr-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.nr-stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.nr-stat-value {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+}
+
+.nr-stat-value.nr-stat-neutral {
+    color: var(--accent-2);
+}
+
+.nr-stat-label {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+}
+
+.nr-stat-note {
+    background: var(--bg-alt);
+    border-left: 3px solid var(--accent-2);
+    padding: 0.85rem 1.1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+}
+
+.nr-stat-note strong {
+    color: var(--text);
+}
+
+/* ---------- Contributions ---------- */
+
+.nr-contrib-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.nr-contrib-card {
+    background: var(--card-bg-alt);
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.nr-contrib-card .nr-contrib-num {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.nr-contrib-card h3 {
+    color: var(--text);
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.nr-contrib-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ---------- Limitations ---------- */
+
+.nr-limitations {
+    background: var(--card-bg);
+    border: 1px solid var(--warn);
+    border-radius: 12px;
+    padding: 1.75rem;
+}
+
+.nr-limitations h2 {
+    color: var(--warn);
+}
+
+.nr-limitations ul {
+    margin-left: 1.25rem;
+    color: var(--text-dim);
+}
+
+.nr-limitations li {
+    margin-bottom: 0.5rem;
+}
+
+/* ---------- Tech badges ---------- */
+
+.nr-tech-group {
+    margin-bottom: 1.25rem;
+}
+
+.nr-tech-group-label {
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.6rem;
+}
+
+.nr-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.nr-badge {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--accent-2);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+}
+
+/* ---------- Key papers ---------- */
+
+.nr-papers {
+    list-style: none;
+    margin-left: 0;
+}
+
+.nr-papers li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.92rem;
+}
+
+.nr-papers li:last-child {
+    border-bottom: none;
+}
+
+/* ---------- Vision statement ---------- */
+
+.nr-vision {
+    background: linear-gradient(135deg, var(--bg-alt), var(--card-bg-alt));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+.nr-vision-inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.nr-vision p {
+    font-size: 1.15rem;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+}
+
+.nr-vision p:last-child {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.nr-footer {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+.nr-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .nr-stage {
+        gap: 1rem;
+    }
+    .nr-stage-body {
+        padding: 1.15rem 1.25rem;
+    }
+}

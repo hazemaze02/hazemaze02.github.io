@@ -484,3 +484,264 @@ body {
     height: auto;
     display: block;
 }
+
+/* ---------- Shared: honest intro + inline links ---------- */
+
+.honest-intro {
+    font-size: 1.05rem;
+    color: #166082;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 1rem auto 1.5rem;
+    padding: 0.75rem 1.25rem;
+    border-left: 3px solid #ee604b;
+    text-align: left;
+}
+
+.inline-link {
+    color: #ee604b;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.inline-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Shared: footer contact links ---------- */
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: #166082;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    color: #ee604b;
+}
+
+/* ---------- Shared: simple page header/content (Research, About, Experience) ---------- */
+
+.page-header {
+    padding: 3rem 1.5rem 1rem;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: #4b5563;
+    max-width: 700px;
+    margin: 1rem auto 0;
+}
+
+.page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 4rem;
+}
+
+.page-content h2 {
+    color: #166082;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.page-content h2:first-child {
+    margin-top: 0;
+}
+
+.page-content p {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.page-content ul {
+    margin: 0 0 1rem 1.5rem;
+    color: #333;
+}
+
+.page-content li {
+    margin-bottom: 0.4rem;
+}
+
+.status-note {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: #fff4e5;
+    color: #c54000;
+    margin-bottom: 0.75rem;
+}
+
+/* ---------- Featured Projects ---------- */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 3rem;
+}
+
+.project-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card h3 {
+    color: #111827;
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+}
+
+.project-subtitle {
+    color: #6b7280;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+.project-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+    width: fit-content;
+}
+
+.project-tag.status-progress {
+    background: #fff4e5;
+    color: #c54000;
+}
+
+.project-tag.status-research {
+    background: #e6f0f5;
+    color: #166082;
+}
+
+.project-card .field-label {
+    font-weight: 700;
+    color: #166082;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.project-card p {
+    color: #374151;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.project-card .card-link {
+    margin-top: 1.25rem;
+    align-self: flex-start;
+    color: #ee604b;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.project-card .card-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Labs & Coursework (light list) ---------- */
+
+.coursework-list {
+    max-width: 800px;
+    margin: 1rem auto 3rem;
+    padding: 0 1.5rem;
+}
+
+.coursework-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.coursework-item:last-child {
+    border-bottom: none;
+}
+
+.coursework-item h3 {
+    color: #111827;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+}
+
+.coursework-meta {
+    font-size: 0.75rem;
+    color: #ee604b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.4rem;
+}
+
+.coursework-item p {
+    color: #4b5563;
+    font-size: 0.9rem;
+}
+
+/* ---------- Experience ---------- */
+
+.experience-item {
+    margin-bottom: 2rem;
+}
+
+.experience-role {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.experience-org {
+    color: #166082;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.experience-dates {
+    color: #6b7280;
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+}
+
+.experience-item ul {
+    margin-left: 1.25rem;
+    color: #374151;
+}
+
+.experience-item li {
+    margin-bottom: 0.4rem;
+}

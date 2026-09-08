@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Labs & Coursework | Hyezel's Portfolio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <div class="logo-wrapper">
+                        <a href="index.html"><img src="images/logo.png"
+                            alt="Haze Maze Logo"
+                            class="logo-icon"
+                            id="logoImage"></a>
+                        <a href="index.html" class="nav-logo">
+                            <span class="logo-text-left">Haze</span>
+                            <span class="logo-text-right">Maze</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="projects.html" class="nav-link">Featured Projects</a>
+                    <a href="research.html" class="nav-link">Research</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="experience.html" class="nav-link">Experience</a>
+                    <a href="coursework.html" class="nav-link">Labs & Coursework</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <h1 class="page-title">Labs & Coursework</h1>
+            <p class="page-subtitle">
+                Smaller class projects and assignments, not showcase pieces,
+                just a running list of what I've built along the way.
+            </p>
+        </header>
+
+        <section class="coursework-list">
+            <div class="coursework-item">
+                <div class="coursework-meta">Object-Oriented Design</div>
+                <h3>Reversi the Kirby</h3>
+                <p>
+                    Programmed a hexagonal-board variant of Reversi with a Kirby
+                    (black) vs. Meta Knight (white) theme, using a Model-View-Controller
+                    architecture. Included four AI player strategies, an optional
+                    square-board mode, an in-game hint system, and integration of a
+                    provider team's view/strategy code via mock classes.
+                </p>
+            </div>
+
+            <div class="coursework-item">
+                <div class="coursework-meta">Object-Oriented Design</div>
+                <h3>Klondike Solitaire</h3>
+                <p>
+                    Implemented Klondike Solitaire with a Model-View-Controller
+                    architecture and a text-based interface. Built three rule
+                    variants (Basic, Whitehead, and Limited Draw) sharing a common
+                    abstract base class to keep the rule logic DRY across variants.
+                </p>
+            </div>
+
+            <div class="coursework-item">
+                <div class="coursework-meta">Algorithms & AI</div>
+                <h3>N-Puzzle Solver</h3>
+                <p>
+                    Course project implementing search-based solving strategies
+                    (e.g., A*) for the sliding N-puzzle.
+                </p>
+            </div>
+
+            <div class="coursework-item">
+                <div class="coursework-meta">Algorithms & AI</div>
+                <h3>2048</h3>
+                <p>
+                    Course project implementing the 2048 game with AI-driven move
+                    strategies.
+                </p>
+            </div>
+
+            <div class="coursework-item">
+                <div class="coursework-meta">Algorithms & AI</div>
+                <h3>Sudoku as a Constraint Satisfaction Problem</h3>
+                <p>
+                    Course project modeling and solving Sudoku puzzles using
+                    constraint satisfaction problem (CSP) techniques.
+                </p>
+            </div>
+
+            <div class="coursework-item">
+                <div class="coursework-meta">Deep Learning for CV / Neural Rendering Graphics</div>
+                <h3>DL for CV & Neural Rendering Graphics Final Projects</h3>
+                <p>
+                    Final projects from Columbia's Deep Learning for Computer
+                    Vision and Neural Rendering Graphics courses.
+                </p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="resume.pdf" class="footer-link">Resume</a>
+                <a href="mailto:hyezellim@gmail.com" class="footer-link">Email</a>
+                <a href="https://www.linkedin.com/in/hazelim/" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/hazemaze02" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <p>&copy; 2026 Hazel Lim. All rights reserved.</p>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
