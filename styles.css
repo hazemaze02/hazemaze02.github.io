@@ -549,6 +549,25 @@ body {
     margin: 1rem auto 0;
 }
 
+.about-photo {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 1.25rem auto 0.75rem;
+    border: 3px solid #ee604b;
+}
+
+.about-photo-caption {
+    text-align: center;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #6b7280;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
 .page-content {
     max-width: 800px;
     margin: 0 auto;
@@ -591,6 +610,115 @@ body {
     background: #fff4e5;
     color: #c54000;
     margin-bottom: 0.75rem;
+}
+
+/* ---------- Fun section (About page) ---------- */
+
+.fun-callout {
+    background: #fff4e5;
+    border-left: 3px solid #ee604b;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: #111827;
+    margin-bottom: 0;
+}
+
+.cat-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.cat-thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 10px;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.cat-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.cat-thumb:hover img {
+    transform: scale(1.08);
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 12, 0.88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 2rem;
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+}
+
+.lightbox-close,
+.lightbox-nav {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-close {
+    top: 1.25rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+}
+
+.lightbox-nav {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+}
+
+.lightbox-prev {
+    left: 1.5rem;
+}
+
+.lightbox-next {
+    right: 1.5rem;
 }
 
 /* ---------- Featured Projects ---------- */
@@ -713,6 +841,90 @@ body {
     font-size: 0.9rem;
 }
 
+.coursework-media {
+    margin-top: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.coursework-media img,
+.coursework-media video {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    object-fit: contain;
+}
+
+.coursework-media.coursework-media-wide img {
+    max-width: 480px;
+}
+
+.coursework-media img.coursework-media-item-wide {
+    max-width: 480px;
+}
+
+.code-block-wrap {
+    margin-top: 1rem;
+    background: #fdfdfd;
+    border: 1px solid #e0e0e6;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 640px;
+}
+
+.code-block-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.9rem;
+    background: #f0f0f4;
+    border-bottom: 1px solid #e0e0e6;
+}
+
+.code-block-dots {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.code-block-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.code-block-dots span:nth-child(1) { background: #ff5f56; }
+.code-block-dots span:nth-child(2) { background: #ffbd2e; }
+.code-block-dots span:nth-child(3) { background: #27c93f; }
+
+.code-block-filename {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-weight: 600;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.code-block-wrap pre {
+    margin: 0;
+    padding: 1rem 1.1rem;
+    overflow-x: auto;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #1f2328;
+    background: #fdfdfd;
+}
+
+.tok-kw { color: #0451a5; }
+.tok-fn { color: #267f99; }
+.tok-str { color: #a31515; }
+.tok-com { color: #008000; }
+.tok-num { color: #098658; }
+
 /* ---------- Experience ---------- */
 
 .experience-item {
@@ -744,4 +956,88 @@ body {
 
 .experience-item li {
     margin-bottom: 0.4rem;
+}
+
+/* ---------- Slide carousel (presentation decks) ---------- */
+
+.slide-embed-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #166082;
+    margin: 0.5rem 0 0.5rem;
+}
+
+.slide-carousel {
+    max-width: 640px;
+    border: 1px solid #e0e0e6;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f7f7fa;
+    outline: none;
+}
+
+.slide-carousel:focus-visible {
+    box-shadow: 0 0 0 3px rgba(22, 96, 130, 0.35);
+}
+
+.slide-viewport {
+    background: #111317;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    user-select: none;
+}
+
+.slide-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.6rem 0.9rem;
+    border-top: 1px solid #e0e0e6;
+    background: #fff;
+}
+
+.slide-btn {
+    background: #166082;
+    color: #fff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-btn:hover:not(:disabled) {
+    background: #ee604b;
+}
+
+.slide-btn:disabled {
+    background: #d1d5db;
+    cursor: default;
+}
+
+.slide-counter {
+    font-size: 0.8rem;
+    color: #6b7280;
+    font-weight: 600;
+    min-width: 3.5rem;
+    text-align: center;
+}
+
+.slide-download {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
 }

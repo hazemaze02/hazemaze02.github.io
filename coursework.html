@@ -44,6 +44,47 @@
 
         <section class="coursework-list">
             <div class="coursework-item">
+                <div class="coursework-meta">Computational Imaging</div>
+                <h3>SLAM + 6 DoF Pose Estimation</h3>
+                <p>
+                    Class presentation on simultaneous localization and mapping
+                    (SLAM) and 6 degrees-of-freedom (6 DoF) pose estimation,
+                    covering current approaches in the field.
+                </p>
+                <div class="slide-carousel" data-slide-count="80" data-slide-pad="2" data-slide-path="files/slides/coms6732-6dof-slam/slide">
+                    <div class="slide-viewport">
+                        <img class="slide-image" src="files/slides/coms6732-6dof-slam/slide-01.jpg" alt="Slide 1 of SLAM and 6 DoF presentation" loading="lazy" />
+                    </div>
+                    <div class="slide-controls">
+                        <button type="button" class="slide-btn slide-prev" aria-label="Previous slide">‹</button>
+                        <span class="slide-counter">1 / 80</span>
+                        <button type="button" class="slide-btn slide-next" aria-label="Next slide">›</button>
+                    </div>
+                </div>
+                <a href="files/coms6732-6dof-slam.pdf" class="inline-link slide-download">Download slides (.pdf)</a>
+            </div>
+
+            <div class="coursework-item">
+                <div class="coursework-meta">Computational Imaging</div>
+                <h3>Structured Light</h3>
+                <p>
+                    Class presentation on structured light 3D scanning
+                    techniques.
+                </p>
+                <div class="slide-carousel" data-slide-count="68" data-slide-pad="2" data-slide-path="files/slides/coms6732-structured-light/slide">
+                    <div class="slide-viewport">
+                        <img class="slide-image" src="files/slides/coms6732-structured-light/slide-01.jpg" alt="Slide 1 of Structured Light presentation" loading="lazy" />
+                    </div>
+                    <div class="slide-controls">
+                        <button type="button" class="slide-btn slide-prev" aria-label="Previous slide">‹</button>
+                        <span class="slide-counter">1 / 68</span>
+                        <button type="button" class="slide-btn slide-next" aria-label="Next slide">›</button>
+                    </div>
+                </div>
+                <a href="files/coms6732-structured-light.pdf" class="inline-link slide-download">Download slides (.pdf)</a>
+            </div>
+
+            <div class="coursework-item">
                 <div class="coursework-meta">Object-Oriented Design</div>
                 <h3>Reversi the Kirby</h3>
                 <p>
@@ -53,6 +94,13 @@
                     square-board mode, an in-game hint system, and integration of a
                     provider team's view/strategy code via mock classes.
                 </p>
+                <div class="coursework-media">
+                    <img src="images/gui_kirby.png" alt="Reversi the Kirby GUI" loading="lazy" />
+                    <img src="images/gui_meta.png" alt="Reversi the Meta Knight GUI" loading="lazy" />
+                    <video controls preload="none" poster="images/gui_kirby.png">
+                        <source src="videos/reversi-full-runthrough.mp4" type="video/mp4" />
+                    </video>
+                </div>
             </div>
 
             <div class="coursework-item">
@@ -64,6 +112,10 @@
                     variants (Basic, Whitehead, and Limited Draw) sharing a common
                     abstract base class to keep the rule logic DRY across variants.
                 </p>
+                <div class="coursework-media">
+                    <img src="images/klondike-game-runthrough.png" alt="Klondike game runthrough" loading="lazy" />
+                    <img src="images/klondike-game-runthrough_2.png" alt="Klondike game runthrough, second view" loading="lazy" />
+                </div>
             </div>
 
             <div class="coursework-item">
@@ -73,6 +125,45 @@
                     Course project implementing search-based solving strategies
                     (e.g., A*) for the sliding N-puzzle.
                 </p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-block-dots"><span></span><span></span><span></span></div>
+                        <span class="code-block-filename">solver.py</span>
+                    </div>
+                    <pre><code><span class="tok-kw">class</span> <span class="tok-fn">Solver</span>:
+    <span class="tok-str">"""Class that works with the PuzzleState class to solve the puzzle"""</span>
+    <span class="tok-kw">def</span> <span class="tok-fn">__init__</span>(<span class="tok-kw">self</span>, n):
+        <span class="tok-kw">self</span>.n = n
+        <span class="tok-kw">self</span>.nodes_expanded = <span class="tok-num">0</span>
+        <span class="tok-kw">self</span>.max_search_depth = <span class="tok-num">0</span>
+        <span class="tok-kw">self</span>.running_time = <span class="tok-num">0</span>
+        <span class="tok-kw">self</span>.max_ram_usage = <span class="tok-num">0</span>
+
+    <span class="tok-kw">def</span> <span class="tok-fn">reconstruct_path</span>(<span class="tok-kw">self</span>, state):
+        <span class="tok-str">"""Reconstructs the path from the initial state to the given state"""</span>
+        path = []
+        current = state
+        <span class="tok-kw">while</span> current.parent <span class="tok-kw">is</span> <span class="tok-kw">not</span> <span class="tok-kw">None</span>:
+            path.append(current.action)
+            current = current.parent
+        path.reverse()
+        <span class="tok-kw">return</span> path
+
+    <span class="tok-kw">def</span> <span class="tok-fn">measure_ram_usage</span>(<span class="tok-kw">self</span>):
+        <span class="tok-str">"""Measures the current RAM usage of the program"""</span>
+        start_ram = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        search_ram = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss - start_ram
+        <span class="tok-kw">return</span> search_ram / (<span class="tok-num">2**20</span>)
+
+    <span class="tok-kw">def</span> <span class="tok-fn">solve_bfs</span>(<span class="tok-kw">self</span>, initial_state):
+        <span class="tok-kw">return</span> <span class="tok-kw">self</span>.solve(initial_state, method=<span class="tok-str">"bfs"</span>)
+
+    <span class="tok-kw">def</span> <span class="tok-fn">solve_dfs</span>(<span class="tok-kw">self</span>, initial_state):
+        <span class="tok-kw">return</span> <span class="tok-kw">self</span>.solve(initial_state, method=<span class="tok-str">"dfs"</span>)
+
+    <span class="tok-kw">def</span> <span class="tok-fn">solve_ast</span>(<span class="tok-kw">self</span>, initial_state):
+        <span class="tok-kw">return</span> <span class="tok-kw">self</span>.solve(initial_state, method=<span class="tok-str">"ast"</span>)</code></pre>
+                </div>
             </div>
 
             <div class="coursework-item">
@@ -82,6 +173,44 @@
                     Course project implementing the 2048 game with AI-driven move
                     strategies.
                 </p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-block-dots"><span></span><span></span><span></span></div>
+                        <span class="code-block-filename">frontier.py</span>
+                    </div>
+                    <pre><code><span class="tok-kw">class</span> <span class="tok-fn">AStarFrontier</span>(Frontier):
+    <span class="tok-str">"""Class that represents the A* frontier"""</span>
+    <span class="tok-com"># Uses priority queue based on the value of f=g+h, where g is the cost to</span>
+    <span class="tok-com"># reach the node and h is the heuristic estimate to the goal</span>
+    <span class="tok-com"># Manhattan dist used for heuristic value</span>
+    <span class="tok-kw">def</span> <span class="tok-fn">__init__</span>(<span class="tok-kw">self</span>):
+        <span class="tok-kw">self</span>.frontierh = []
+        <span class="tok-kw">self</span>.frontierset = <span class="tok-fn">set</span>()
+        <span class="tok-kw">self</span>.counter = <span class="tok-num">0</span>
+
+    <span class="tok-kw">def</span> <span class="tok-fn">push</span>(<span class="tok-kw">self</span>, state):
+        <span class="tok-str">"""Add a state to the frontier"""</span>
+        heapq.heappush(<span class="tok-kw">self</span>.frontierh, state)
+        <span class="tok-kw">self</span>.frontierset.add(state.config_tuple)
+
+    <span class="tok-kw">def</span> <span class="tok-fn">pop</span>(<span class="tok-kw">self</span>):
+        <span class="tok-str">"""Pop a state from the frontier"""</span>
+        <span class="tok-kw">if</span> <span class="tok-kw">self</span>.is_empty():
+            <span class="tok-kw">return</span> <span class="tok-kw">None</span>
+
+        <span class="tok-com"># pop the state with the lowest f value from the priority queue</span>
+        state =  heapq.heappop(<span class="tok-kw">self</span>.frontierh)
+        <span class="tok-kw">self</span>.frontierset.remove(state.config_tuple)
+        <span class="tok-kw">return</span> state
+
+    <span class="tok-kw">def</span> <span class="tok-fn">is_empty</span>(<span class="tok-kw">self</span>):
+        <span class="tok-str">"""Check if the frontier is empty"""</span>
+        <span class="tok-kw">return</span> <span class="tok-kw">not</span> <span class="tok-kw">self</span>.frontierh
+
+    <span class="tok-kw">def</span> <span class="tok-fn">contains</span>(<span class="tok-kw">self</span>, state):
+        <span class="tok-str">"""Check if the frontier contains the given state"""</span>
+        <span class="tok-kw">return</span> state.config_tuple <span class="tok-kw">in</span> <span class="tok-kw">self</span>.frontierset</code></pre>
+                </div>
             </div>
 
             <div class="coursework-item">
@@ -94,12 +223,42 @@
             </div>
 
             <div class="coursework-item">
-                <div class="coursework-meta">Deep Learning for CV / Neural Rendering Graphics</div>
-                <h3>DL for CV & Neural Rendering Graphics Final Projects</h3>
+                <div class="coursework-meta">Neural Rendering Graphics</div>
+                <h3>Three-Dimensional Reconstructions of the Brain Using Neural Radiance Fields</h3>
                 <p>
-                    Final projects from Columbia's Deep Learning for Computer
-                    Vision and Neural Rendering Graphics courses.
+                    Implemented an MRI neural rendering pipeline using PixelNeRF
+                    to synthesize novel viewpoints of the brain from a single MRI
+                    scan. Curated and preprocessed a multi-site dataset of
+                    roughly 860 MRI slices (from UCSF, BraTS 2020, and
+                    whole-brain sources), including synthetic 360° slice
+                    generation, and trained a PixelNeRF-based renderer that
+                    predicts voxel-wise contrast parameters and performs
+                    volumetric rendering to output grayscale intensity per ray.
                 </p>
+                <div class="coursework-media">
+                    <img src="images/portfolio_nrg.png" alt="Synthetic MRI brain slices rendered at different viewing angles by the trained PixelNeRF model" loading="lazy" />
+                    <img src="images/portfolio_nrg2.png" alt="Diagram of the MRI-based PixelNeRF architecture" loading="lazy" class="coursework-media-item-wide" />
+                </div>
+            </div>
+
+            <div class="coursework-item">
+                <div class="coursework-meta">Deep Learning for Computer Vision</div>
+                <h3>Estimating Brain Age Gap from Handwriting and Drawing Data</h3>
+                <p>
+                    Built a deep learning pipeline to estimate a behavioral
+                    "brain age gap" from handwriting and drawing samples,
+                    comparing image-based backbones (ResNet-18, ResNet-50, ViT)
+                    against a custom 63-dimensional stroke-feature MLP. The
+                    feature-based MLP performed best (~86% test accuracy),
+                    and the trained models were applied to Parkinson's and
+                    Autism Spectrum Disorder handwriting/drawing data to
+                    explore brain age gap as a low-cost screening signal
+                    complementary to MRI-based biomarkers.
+                </p>
+                <div class="coursework-media coursework-media-wide">
+                    <img src="images/portfolio_dlcv.png" alt="Predicted age-group distributions for Parkinson's handwriting drawings across model backbones" loading="lazy" />
+                    <img src="images/portfolio_dlcv_evaluatingmodels.png" alt="Accuracy, macro-F1, and macro-AUC comparison across ResNet50, ResNet18, ViT, and the feature-based MLP" loading="lazy" />
+                </div>
             </div>
         </section>
 
@@ -113,5 +272,6 @@
             <p>&copy; 2026 Hazel Lim. All rights reserved.</p>
         </footer>
         <script src="script.js"></script>
+        <script src="carousel.js"></script>
     </body>
 </html>

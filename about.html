@@ -37,6 +37,11 @@
         <header class="page-header">
             <h1 class="page-title">About</h1>
             <p class="page-subtitle">Hazel Lim (Hye Min Lim)</p>
+            <img src="images/me.jpg" alt="Childhood photo of Hazel making a peace sign on a coastal rock wall" class="about-photo" />
+            <p class="about-photo-caption">
+                I like to be remembered as a cool person by others, and
+                frankly, I was coolest back in Guatemala at the crisp age of 4.
+            </p>
         </header>
 
         <section class="page-content">
@@ -94,6 +99,33 @@
                 Criminal Justice, minor in Computer Science, May 2024. Dean's List,
                 NU Honors Program, Amelia Peabody Scholarship.
             </p>
+
+            <h2>The actually important part</h2>
+            <p class="fun-callout">
+                Most important part to know about me is that I am a mother of
+                two orange, devious lions named Speedos and Cheetos. While I
+                catch the bugs in my code, my children debug the ones in my
+                room.
+            </p>
+            <div class="cat-gallery">
+                <button type="button" class="cat-thumb"><img src="images/cats/cat-01.jpg" alt="Orange cat lying on its back in a hallway corner wearing a black bow tie" loading="lazy" /></button>
+                <button type="button" class="cat-thumb"><img src="images/cats/cat-02.jpg" alt="Two orange cats perched on office chairs at a desk" loading="lazy" /></button>
+                <button type="button" class="cat-thumb"><img src="images/cats/cat-03.jpg" alt="Two orange cats on a kitchen counter, one lying across a stack of papers" loading="lazy" /></button>
+                <button type="button" class="cat-thumb"><img src="images/cats/cat-04.jpg" alt="Orange cat with a collar tag staring at the camera" loading="lazy" /></button>
+                <button type="button" class="cat-thumb"><img src="images/cats/cat-05.jpg" alt="Orange cat lying on a desk with a paw resting on a laptop keyboard" loading="lazy" /></button>
+                <button type="button" class="cat-thumb"><img src="images/cats/cat-06.jpg" alt="Orange cat wearing a yellow fruit-shaped hat, peeking around a doorway" loading="lazy" /></button>
+                <button type="button" class="cat-thumb"><img src="images/cats/cat-07.jpg" alt="Orange cat napping with its head resting on a tablet showing course slides" loading="lazy" /></button>
+                <button type="button" class="cat-thumb"><img src="images/cats/cat-08.jpg" alt="Orange cat curled up asleep on a desk beside a notebook" loading="lazy" /></button>
+                <button type="button" class="cat-thumb"><img src="images/cats/cat-09.jpg" alt="Orange cat sitting in a hammock on a cat tree, surrounded by stuffed animals" loading="lazy" /></button>
+                <button type="button" class="cat-thumb"><img src="images/cats/cat-10.jpg" alt="Orange cat lying on a keyboard, nibbling on a laptop screen" loading="lazy" /></button>
+            </div>
+
+            <div class="lightbox" id="catLightbox" hidden>
+                <button type="button" class="lightbox-close" aria-label="Close preview">&times;</button>
+                <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photo">&lsaquo;</button>
+                <img class="lightbox-img" src="" alt="" />
+                <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photo">&rsaquo;</button>
+            </div>
         </section>
 
         <footer class="footer">
@@ -106,5 +138,6 @@
             <p>&copy; 2026 Hazel Lim. All rights reserved.</p>
         </footer>
         <script src="script.js"></script>
+        <script src="lightbox.js"></script>
     </body>
 </html>
