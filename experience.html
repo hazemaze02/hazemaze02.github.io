@@ -27,9 +27,9 @@
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="projects.html" class="nav-link">Featured Projects</a>
                     <a href="research.html" class="nav-link">Research</a>
-                    <a href="about.html" class="nav-link">About</a>
+                    <a href="about.html" class="nav-link">Sobre Mí</a>
                     <a href="experience.html" class="nav-link">Experience</a>
-                    <a href="coursework.html" class="nav-link">Labs & Coursework</a>
+                    <a href="coursework.html" class="nav-link">Reminiscing Courseworks</a>
                 </div>
             </div>
         </nav>
@@ -39,27 +39,52 @@
         </header>
 
         <section class="page-content">
-            <h2>Research Experience</h2>
+            <h2>Teaching Experience</h2>
 
             <div class="experience-item">
-                <div class="experience-role">Graduate Research Assistant</div>
-                <div class="experience-org">Laboratory of Neural Engineering and Control, Columbia University · Supervisor: Dr. Qi Wang</div>
-                <div class="experience-dates">Feb 2026 – present · New York, NY</div>
+                <div class="experience-role">Teaching Assistant</div>
+                <div class="experience-org">COMS 4701: Artificial Intelligence, Columbia University</div>
+                <div class="experience-dates">Fall 2026 – present · New York, NY</div>
                 <ul>
-                    <li>Investigating the coupling between pupil dilation dynamics and EEG patterns using existing physiological datasets, extending prior work on the locus coeruleus–norepinephrine system's role in pupil-linked arousal and cortical state</li>
-                    <li>Benchmarking deep learning architectures, including temporal models (TCNs, LSTMs) and attention-based approaches, to predict EEG signals from pupillometric inputs across varying arousal states</li>
-                    <li>Motivated by applications in adaptive learning environments, where real-time pupil-EEG coupling could inform BCI systems capable of detecting and responding to fluctuations in focus and cognitive engagement</li>
+                    <li>Hold weekly office hours to help students work through assignments and course concepts</li>
+                    <li>Grade student assignments and exams</li>
+                    <li>Answer student questions online</li>
+                    <li>Proctor exams</li>
                 </ul>
             </div>
+
+            <h2>Research Experience</h2>
 
             <div class="experience-item">
                 <div class="experience-role">Graduate Research Assistant</div>
                 <div class="experience-org">Columbia University Irving Medical Center · Supervisor: Prof. Yading Yuan</div>
                 <div class="experience-dates">Jan 2026 – present · New York, NY</div>
                 <ul>
-                    <li>Developing a NeRF-based reconstruction pipeline for CT scan data, extending neural rendering to 3D volumetric medical imaging</li>
-                    <li>Conducting a structured literature review of current approaches to neural radiance fields and Gaussian splatting in medical imaging</li>
-                    <li>Building and validating data preprocessing workflows for high-dimensional scan inputs, with attention to data integrity and domain-specific constraints relevant to safety-critical systems</li>
+                    <li>Investigating how to construct multi-basis material images directly from conventional, single-energy CT scans using Gaussian Splatting, rather than relying on specialized dual-energy hardware</li>
+                    <li>Conducted an in-depth literature review comparing two recent approaches to modeling the mixed-energy physics of X-rays in CT reconstruction, producing a reference write-up of their shared mathematical foundation and tradeoffs for the lab</li>
+                    <li>Submitted an abstract and supplemental manuscript on planning-CT-initialized Gaussian Splatting reconstruction of ultra-sparse-view CBCT to SPIE Medical Imaging 2026 (Image Processing track); decision pending</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-role">Graduate Research Assistant</div>
+                <div class="experience-org">Computer Graphics and User Interfaces Lab, Columbia University · Supervisor: Prof. Steve Feiner</div>
+                <div class="experience-dates">Sep 2026 – present · New York, NY</div>
+                <ul>
+                    <li>Contributing to a research project that uses AR/VR headsets and 3D Gaussian Splatting to support remote technical assistance, letting a technician inspect a realistic 3D reconstruction of faulty hardware instead of a flat video feed</li>
+                    <li>Building the headset-side Unity client, with a teammate, as part of a larger effort to stream progressively refined 3D Gaussian splats to the headset, so a user sees a fast initial reconstruction followed by higher-quality updates without visual disruption</li>
+                    <li>Modifying the current Gaussian Splatting pipeline (based on the AnySplat model by Jiang et al., 2025), experimenting with different approaches to object masking, finer-detail rendering, and reconstructing novel objects not seen in training data</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-role">Graduate Research Assistant</div>
+                <div class="experience-org">Geometry and the City Lab, Columbia University · Supervisor: Prof. Silvia Sellán</div>
+                <div class="experience-dates">Sep 2026 – present · New York, NY</div>
+                <ul>
+                    <li>Contributing to a project on foveated geometry, rendering 3D meshes at full detail only where a viewer is looking to reduce rendering load on compute-constrained wearables and AR/VR headsets</li>
+                    <li>Wrote the core algorithm that splits a 3D mesh into well-formed Voronoi patches that can each be simplified independently, enforcing the geometric rules that keep every patch valid</li>
+                    <li>Built an interactive visualization tool for the team to debug and step through the patch-growing algorithm, and wrote the test suite that keeps the module reliable</li>
                 </ul>
             </div>
 
@@ -71,6 +96,17 @@
                     <li>Evaluated zero-shot learning pipelines for action and behavior recognition using 3D CNNs (R(2+1)D-18) and vision-language models (CLIP, SigLIP) on UCF-101 and real-world camera trap datasets</li>
                     <li>Assessed model performance across distribution shifts and prompt variations, work directly analogous to benchmarking and evaluation of generative model behavior</li>
                     <li>Adapted CLIP for zero-shot inference on novel datasets; implemented end-to-end evaluation pipelines with GPU runtime profiling</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-role">Graduate Research Assistant</div>
+                <div class="experience-org">Laboratory of Neural Engineering and Control, Columbia University · Supervisor: Dr. Qi Wang</div>
+                <div class="experience-dates">Feb 2026 – present · New York, NY</div>
+                <ul>
+                    <li>Investigating the coupling between pupil dilation dynamics and EEG patterns using existing physiological datasets, extending prior work on the locus coeruleus–norepinephrine system's role in pupil-linked arousal and cortical state</li>
+                    <li>Benchmarking deep learning architectures, including temporal models (TCNs, LSTMs) and attention-based approaches, to predict EEG signals from pupillometric inputs across varying arousal states</li>
+                    <li>Motivated by applications in adaptive learning environments, where real-time pupil-EEG coupling could inform BCI systems capable of detecting and responding to fluctuations in focus and cognitive engagement</li>
                 </ul>
             </div>
 
@@ -130,6 +166,7 @@
                 <a href="https://github.com/hazemaze02" class="footer-link" target="_blank" rel="noopener">GitHub</a>
             </div>
             <p>&copy; 2026 Hazel Lim. All rights reserved.</p>
+            <p class="site-credit">Site UI (HTML/CSS) built with Claude; all ideas, drawings, and content are my own.</p>
         </footer>
         <script src="script.js"></script>
         <script src="carousel.js"></script>
