@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var count = parseInt(carousel.dataset.slideCount, 10);
         var path = carousel.dataset.slidePath;
         var pad = parseInt(carousel.dataset.slidePad, 10) || 2;
+        var ext = carousel.dataset.slideExt || 'jpg';
         var img = carousel.querySelector('.slide-image');
         var counter = carousel.querySelector('.slide-counter');
         var prevBtn = carousel.querySelector('.slide-prev');
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function slideSrc(n) {
             var num = String(n).padStart(pad, '0');
-            return path + '-' + num + '.jpg';
+            return path + '-' + num + '.' + ext;
         }
 
         function preload(n) {
